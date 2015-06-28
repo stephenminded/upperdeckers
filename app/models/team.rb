@@ -1,5 +1,4 @@
 class Team < ActiveRecord::Base
-  has_many :rosters
-  has_many :players, through: :rosters
+  has_one :roster
   has_many :games
 end

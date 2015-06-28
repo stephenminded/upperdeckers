@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-deckers = Team.create(name: "The Upper Deckers", sport: "softball")
+deckers = Team.create(name: "The Upper Deckers")
 
 

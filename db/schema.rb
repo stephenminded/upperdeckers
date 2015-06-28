@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621162944) do
+ActiveRecord::Schema.define(version: 20150628031305) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer  "game_id"
@@ -54,24 +54,32 @@ ActiveRecord::Schema.define(version: 20150621162944) do
   create_table "players", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "email",      null: false
+    t.string   "phone",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rosters", force: :cascade do |t|
+  create_table "roster_players", force: :cascade do |t|
     t.integer  "player_id"
+    t.integer  "roster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roster_players", ["player_id"], name: "index_roster_players_on_player_id"
+  add_index "roster_players", ["roster_id"], name: "index_roster_players_on_roster_id"
+
+  create_table "rosters", force: :cascade do |t|
     t.integer  "team_id"
     t.string   "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "rosters", ["player_id"], name: "index_rosters_on_player_id"
   add_index "rosters", ["team_id"], name: "index_rosters_on_team_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "sport",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

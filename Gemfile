@@ -12,9 +12,13 @@ gem 'jquery-rails'
 # gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
+  gem 'faker'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'm'
+  gem 'pry-rails'
 end
 
